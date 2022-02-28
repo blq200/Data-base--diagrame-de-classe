@@ -1,2 +1,2 @@
-# Data-base--diagrame-de-classe
+# Diagrame de classe
 https://drawsql.app/classe/diagrams/classes#
