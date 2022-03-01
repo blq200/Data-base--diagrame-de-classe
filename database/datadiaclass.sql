@@ -19,27 +19,21 @@ CREATE TABLE `Clients`(
 ALTER TABLE
     `Clients` ADD PRIMARY KEY `clients_code unique_primary`(`code unique`);
 CREATE TABLE `Commande`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `Id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
     `Adresse` TEXT NOT NULL,
     `Date` DATE NOT NULL,
-    `id produit` INT NOT NULL,
-    `numero produit` INT NOT NULL
+    `Id produit` INT NOT NULL,
+    `Numero produit` INT NOT NULL
 );
 ALTER TABLE
-    `Commande` ADD PRIMARY KEY `commande_id_primary`(`id`);
-CREATE TABLE `table_4`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `id de clients` INT NOT NULL,
-    `numero produit` INT NOT NULL
+    `Commande` ADD PRIMARY KEY `commande_id_primary`(`Id`);
+CREATE TABLE `Quantité`(
+    `Id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `Id produit` INT NOT NULL,
+    `Numero produit` INT NOT NULL,
+    `Prix` INT NOT NULL
 );
 ALTER TABLE
-    `table_4` ADD PRIMARY KEY `table_4_id_primary`(`id`);
-CREATE TABLE `numero de produit`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `id produit` INT NOT NULL,
-    `numero produit` INT NOT NULL
-);
+    `Quantité` ADD PRIMARY KEY `quantité_id_primary`(`Id`);
 ALTER TABLE
-    `numero de produit` ADD PRIMARY KEY `numero de produit_id_primary`(`id`);
-ALTER TABLE
-    `Commande` ADD CONSTRAINT `commande_adresse_foreign` FOREIGN KEY(`Adresse`) REFERENCES `table_4`(`id`);
+    `Commande` ADD CONSTRAINT `commande_id produit_foreign` FOREIGN KEY(`Id produit`) REFERENCES `Clients`(`code unique`);
